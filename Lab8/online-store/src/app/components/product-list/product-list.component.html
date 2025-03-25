@@ -1,0 +1,11 @@
+<h2>Select Category</h2>
+<div class="categories">
+  <button *ngFor="let category of categories" (click)="loadProducts(category)">
+    {{ category }}
+  </button>
+</div>
+
+<h2>Products</h2>
+<div *ngFor="let product of products" class="product-card">
+  <app-product-item [product]="product" (remove)="onRemove($event)"></app-product-item>
+</div>

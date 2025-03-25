@@ -1,0 +1,29 @@
+.product-card {
+  display: inline-block;
+  width: 30%;
+  margin: 10px 0;
+}
+
+.product-card img {
+  width: 100%;
+  height: auto;
+}
+
+.categories {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.categories button {
+  padding: 10px;
+  border: none;
+  background: #007bff;
+  color: white;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.categories button:hover {
+  background: #0056b3;
+}
