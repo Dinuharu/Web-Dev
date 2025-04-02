@@ -4,8 +4,10 @@ from . import views
 urlpatterns = [
     path('companies/', views.company_list),
     path('companies/<int:id>/', views.company_detail),
+    path('companies/create/', views.company_create),
     path('companies/<int:id>/vacancies/', views.company_vacancies),
     path('vacancies/', views.vacancy_list),
     path('vacancies/<int:id>/', views.vacancy_detail),
+    path('vacancies/create/', views.vacancy_create),
     path('vacancies/top_ten/', views.top_ten_vacancies),
 ]
