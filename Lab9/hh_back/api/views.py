@@ -29,6 +29,14 @@ def company_vacancies(request, id):
     serializer = VacancySerializer(vacancies, many=True)
     return Response(serializer.data)
 
+@api_view(['POST'])
+def company_create(request):
+    serializer = CompanySerializer(data=request.data)
+    if serializer.is_valid():
+        serializer.save()
+        return Response(serializer.data, status=status.HTTP_201_CREATED)
+    return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
 @api_view(['GET'])
 def vacancy_list(request):
     vacancies = Vacancy.objects.all()
@@ -43,6 +51,14 @@ def vacancy_detail(request, id):
         return Response({'error': 'Vacancy not found'}, status=status.HTTP_404_NOT_FOUND)
     serializer = VacancySerializer(vacancy)
     return Response(serializer.data)
+
+@api_view(['POST'])
+def vacancy_create(request):
+    serializer = VacancySerializer(data=request.data)
+    if serializer.is_valid():
+        serializer.save()
+        return Response(serializer.data, status=status.HTTP_201_CREATED)
+    return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 @api_view(['GET'])
 def top_ten_vacancies(request):
